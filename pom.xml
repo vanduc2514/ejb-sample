@@ -22,12 +22,13 @@
             <scope>provided</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.wildfly/wildfly-jms-client-bom -->
+        <!-- https://mvnrepository.com/artifact/org.jboss/jboss-ejb-client -->
         <dependency>
-            <groupId>org.wildfly</groupId>
-            <artifactId>wildfly-jms-client-bom</artifactId>
-            <version>20.0.1.Final</version>
-            <type>pom</type>
+            <groupId>org.jboss</groupId>
+            <artifactId>jboss-ejb-client</artifactId>
+            <version>4.0.35.Final</version>
         </dependency>
+
     </dependencies>
 
     <build>
