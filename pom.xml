@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.ifi</groupId>
-    <artifactId>ejb-sample</artifactId>
+    <artifactId>ejb-remote</artifactId>
     <version>1.0</version>
     <packaging>ejb</packaging>
 
-    <name>ejb-sample</name>
+    <name>ejb-remote</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
@@ -21,8 +21,6 @@
             <version>6.0</version>
             <scope>provided</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.wildfly/wildfly-jms-client-bom -->
-        <!-- https://mvnrepository.com/artifact/org.jboss/jboss-ejb-client -->
         <dependency>
             <groupId>org.jboss</groupId>
             <artifactId>jboss-ejb-client</artifactId>
