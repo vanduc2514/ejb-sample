@@ -81,7 +81,7 @@
                             <goal>copy-dependencies</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.directory}/libs</outputDirectory>
+                            <outputDirectory>${project.build.directory}/shipping/libs</outputDirectory>
                             <overWriteReleases>false</overWriteReleases>
                             <overWriteSnapshots>false</overWriteSnapshots>
                             <overWriteIfNewer>true</overWriteIfNewer>
@@ -93,6 +93,7 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.0.2</version>
                 <configuration>
+                    <outputDirectory>${project.build.directory}/shipping</outputDirectory>
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
@@ -115,8 +116,8 @@
                         </goals>
                         <configuration>
                             <headerType>console</headerType>
-                            <outfile>target/ejb-client-1.0.exe</outfile>
-                            <jar>target/ejb-client-1.0.jar</jar>
+                            <outfile>${project.build.directory}/shipping/ejb-client-1.0.exe</outfile>
+                            <jar>${project.build.directory}/shipping/ejb-client-1.0.jar</jar>
                             <errTitle>ejb-client</errTitle>
                             <classPath>
                                 <mainClass>com.ifi.App</mainClass>
