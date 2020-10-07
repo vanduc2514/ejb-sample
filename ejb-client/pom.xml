@@ -28,6 +28,13 @@
             <version>4.11</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.ifi</groupId>
+            <artifactId>ejb-remote</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/ejb-remote-1.0-client.jar</systemPath>
+        </dependency>
     </dependencies>
 
     <build>
