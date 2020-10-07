@@ -5,7 +5,10 @@
     <groupId>com.ifi</groupId>
     <artifactId>ejb-remote</artifactId>
     <version>1.0</version>
-    <packaging>ejb</packaging>
+    <modules>
+        <module>ejb-client</module>
+    </modules>
+    <packaging>pom</packaging>
 
     <name>ejb-remote</name>
 
