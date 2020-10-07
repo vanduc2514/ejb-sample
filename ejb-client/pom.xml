@@ -19,6 +19,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <shippingFolderName>shipping</shippingFolderName>
+        <dependencyFolderName>libs</dependencyFolderName>
+        <mainClassFullyQualifiedName>com.ifi.App</mainClassFullyQualifiedName>
     </properties>
 
     <repositories>
@@ -81,7 +84,7 @@
                             <goal>copy-dependencies</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.directory}/shipping/libs</outputDirectory>
+                            <outputDirectory>${project.build.directory}/${shippingFolderName}/${dependencyFolderName}</outputDirectory>
                             <overWriteReleases>false</overWriteReleases>
                             <overWriteSnapshots>false</overWriteSnapshots>
                             <overWriteIfNewer>true</overWriteIfNewer>
@@ -93,12 +96,12 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.0.2</version>
                 <configuration>
-                    <outputDirectory>${project.build.directory}/shipping</outputDirectory>
+                    <outputDirectory>${project.build.directory}/${shippingFolderName}</outputDirectory>
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <classpathPrefix>libs/</classpathPrefix>
-                            <mainClass>com.ifi.App</mainClass>
+                            <classpathPrefix>${dependencyFolderName}/</classpathPrefix>
+                            <mainClass>${mainClassFullyQualifiedName}</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -116,11 +119,15 @@
                         </goals>
                         <configuration>
                             <headerType>console</headerType>
-                            <outfile>${project.build.directory}/shipping/ejb-client-1.0.exe</outfile>
-                            <jar>${project.build.directory}/shipping/ejb-client-1.0.jar</jar>
+                            <outfile>
+                                ${project.build.directory}/${shippingFolderName}/${project.artifactId}-${project.version}.exe
+                            </outfile>
+                            <jar>
+                                ${project.build.directory}/${shippingFolderName}/${project.artifactId}-${project.version}.jar
+                            </jar>
                             <errTitle>ejb-client</errTitle>
                             <classPath>
-                                <mainClass>com.ifi.App</mainClass>
+                                <mainClass>${mainClassFullyQualifiedName}</mainClass>
                                 <addDependencies>true</addDependencies>
                                 <preCp>anything</preCp>
                             </classPath>
@@ -130,7 +137,8 @@
                             <versionInfo>
                                 <fileVersion>1.0.0.0</fileVersion>
                                 <txtFileVersion>1.0.0.0</txtFileVersion>
-                                <fileDescription>Hello World Client to invoke Remote Java Bean on Server</fileDescription>
+                                <fileDescription>Hello World Client to invoke Remote Java Bean on Server
+                                </fileDescription>
                                 <copyright>Nguyen Van Duc</copyright>
                                 <productVersion>1.0.0.0</productVersion>
                                 <txtProductVersion>1.0.0.0</txtProductVersion>
