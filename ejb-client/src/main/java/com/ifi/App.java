@@ -27,7 +27,7 @@ public class App {
     private static HelloWorld lookupBean() throws NamingException {
         final Properties jndiProperties = buildJNDIProperties();
         final Context context = new InitialContext(jndiProperties);
-        return (HelloWorld) context.lookup("ejb:/ejb-sample-1.0/HelloWorld!com.ifi.stateless.HelloWorld");
+        return (HelloWorld) context.lookup("ejb:/ejb-remote-1.0/HelloWorld!com.ifi.stateless.HelloWorld");
     }
 
     private static Properties buildJNDIProperties() {
