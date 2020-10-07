@@ -6,13 +6,29 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.util.Properties;
+import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            System.out.println("Program Exited");
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }));
+        Scanner scanner = new Scanner(System.in);
         try {
             invokeRemoteBean();
-        } catch (NamingException e) {
+        } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            System.out.print("Press 0 to exit: ");
+            int input = scanner.nextInt();
+            if (input == 0) {
+                System.exit(0);
+            }
         }
     }
 
