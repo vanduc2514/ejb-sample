@@ -12,7 +12,7 @@ public class App {
         try {
             invokeRemoteBean();
         } catch (NamingException e) {
-            System.out.println("Bean name not found");
+            e.printStackTrace();
         }
     }
 
