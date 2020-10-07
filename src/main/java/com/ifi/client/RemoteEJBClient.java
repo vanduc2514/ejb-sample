@@ -6,6 +6,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.util.Hashtable;
+import java.util.Properties;
 
 public class RemoteEJBClient {
     public static void main(String[] args) throws NamingException {
@@ -22,8 +23,11 @@ public class RemoteEJBClient {
     }
 
     private static HelloWorld lookupBean() throws NamingException {
-        final Hashtable<String, String> jndiProperties = new Hashtable<>();
+        final Properties jndiProperties = new Properties();
         jndiProperties.put(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
+        jndiProperties.put(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.naming.remote.client.InitialContextFactory");
+        jndiProperties.put(Context.PROVIDER_URL, "remote://localhost:8080");
+        jndiProperties.put("jboss.naming.client.ejb.context", true);
         final Context context = new InitialContext(jndiProperties);
         return (HelloWorld) context.lookup("ejb:/ejb-sample-1.0/HelloWorld!com.ifi.stateless.HelloWorld");
     }
