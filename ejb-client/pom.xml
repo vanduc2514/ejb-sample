@@ -25,7 +25,7 @@
         <repository>
             <id>client-lib</id>
             <name>Remote Bean Client Library</name>
-            <url>file://${project.basedir}/lib</url>
+            <url>file://${project.basedir}/libs</url>
         </repository>
     </repositories>
 
@@ -81,7 +81,7 @@
                             <goal>copy-dependencies</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                            <outputDirectory>${project.build.directory}/libs</outputDirectory>
                             <overWriteReleases>false</overWriteReleases>
                             <overWriteSnapshots>false</overWriteSnapshots>
                             <overWriteIfNewer>true</overWriteIfNewer>
